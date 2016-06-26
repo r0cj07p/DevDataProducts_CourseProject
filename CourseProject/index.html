@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A Shiny App for Estimating Miles per Gallon in Autombiles</title>
+  <meta charset="utf-8">
+  <meta name="description" content="A Shiny App for Estimating Miles per Gallon in Autombiles">
+  <meta name="author" content="Dave Moody">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>A Shiny App for Estimating Miles per Gallon in Autombiles</h1>
+    <h2>A Course Project for &quot;Developing Data Products,&quot; part of Coursera's Data Science Specialization</h2>
+    <p>Dave Moody<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>About the App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This Shiny app, located at <a href="http://r0cj07p.shinyapps.io/CourseProject">http://r0cj07p.shinyapps.io/CourseProject</a> is called &quot;Miles per Gallon (MPG) Estimator.&quot;
+It gives users a tool for calculating an estimate of a vehicle&#39;s expected MPG by entering other specific 
+information about a given vehicle, including:</p>
+
+<ul>
+<li>The vehicle&#39;s horsepower (hp)</li>
+<li>The engine displacement in cubic inches (disp)</li>
+<li>The number of cylinders in the engine (cyl)</li>
+<li>The vehicle&#39;s weight (wt)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>How to Use the App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Once the app is loaded, the user will see 4 sliders on the left hand side of the screen, each one corresponding
+to one of the aforementioned vehicle characteristics.  The user uses their mouse to move each slider to reflect 
+the desired value for each parameter.  The values go from lowest to highest as you move the sliders from left 
+to right, and the current value for each parameter is shown in the field to the right of each slider. </p>
+
+<p>When all sliders are set to the user&#39;s preference, the histogram at the bottom of the screen will display the 
+estimated MPG for a vehicle with those characteristics in bold print.  A vertical dashed line will also mark the 
+estimated MPG at its place on the X axis of the histogram.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>The Data and Linear Model Used for the App Build</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The dataset used for the app build was the &quot;mtcars&quot; dataset, which is included with the &quot;datasets&quot; library in R.
+The data in this set was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 
+aspects of automobile design and performance for 32 automobiles (1973-74 models).  The dataset can be loaded with 
+the following R commands:</p>
+
+<pre><code class="r">library(datasets)
+data(mtcars) 
+</code></pre>
+
+<p>In order for the app to perform the required MPG calculation, a linear regression model was fit using the MPG 
+column of the dataset as the outcome variable, and the columns corresponding to the 4 input characterisctics as 
+predictors:</p>
+
+<pre><code class="r">fit &lt;- lm(mpg ~ hp+disp+cyl+wt, data=mtcars) 
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Other Supporting Info</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>For more information on the rationale for the chosen predictor variables for this app, a more detailed exploratory 
+and regression analysis of vehicle characteristics with high correlations to MPG was previously performed on this 
+dataset, and the results can be reviewed here: <a href="http://rpubs.com/r0cj07p/191978">http://rpubs.com/r0cj07p/191978</a> </p>
+
+<p>The R code used to build the app can be viewed here:  <a href="http://github.com/r0cj07p/DevDataProducts_CourseProject">http://github.com/r0cj07p/DevDataProducts_CourseProject</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='About the App'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='How to Use the App'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Data and Linear Model Used for the App Build'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Other Supporting Info'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
